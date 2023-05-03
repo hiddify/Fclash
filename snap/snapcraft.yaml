@@ -12,66 +12,39 @@ license: GPL-3.0+
 
 architectures:
   - build-on: amd64
-  - build-on: arm64
-  # - build-on: armhf
-  # - build-on: ppc64el
-  # - build-on: s390x
-
-#slots:
-#  dbus-fclash:
-#    interface: dbus
-#    bus: session
-#    name: cn.kingtous.fclash
+    build-for: amd64
+#   - build-on: amd64
+#     build-for: arm64
 
 parts:
   fclash:
-    plugin: flutter
-    build-snaps: [go/1.19/stable]
+    plugin: nil
     source: .
-    flutter-target: lib/main.dart
+    build-snaps: [go]
     override-build: |
       ./build-clash-lib.py
+      git clone --depth 1 -b stable https://github.com/flutter/flutter.git /root/flutter
+      export PATH="/root/flutter/bin:$PATH"
+      flutter pub get
       flutter build linux --release -v
+      mkdir -p $CRAFT_PART_INSTALL/usr/bin/
+      cp -r build/linux/*/release/bundle/* $CRAFT_PART_INSTALL/usr/bin
     build-packages:
-      - libappindicator3-dev
-      - libharfbuzz-dev
-      # - libgtk-3-dev
-      # - libfreetype6-dev
-    stage-packages:
-      - libappindicator3-1
-      - libharfbuzz0b
-      # - libgtk-3-0
-      # - libgl1-mesa-dri
-      # - libfreetype6
-
-plugs:
-  gsettings:
-  gtk-3-themes:
-    interface: content
-    target: $SNAP/data-dir/themes
-    default-provider: gtk-common-themes
-  icon-themes:
-    interface: content
-    target: $SNAP/data-dir/icons
-    default-provider: gtk-common-themes
-  sound-themes:
-    interface: content
-    target: $SNAP/data-dir/sounds
-    default-provider: gtk-common-themes
+      - python3
+      - git
+      - curl
+      - clang
+      - cmake
+      - ninja-build
+      - unzip
 
 apps:
   fclash:
-    command: fclash
+    command: usr/bin/fclash
     extensions: [ gnome ]
     plugs:
       - network
       - home
-      - gsettings
-      - desktop
-      - desktop-legacy
-      - opengl
-      - x11
-      - wayland
       - unity7
       # manually connect by snap
       - system-observe
@@ -80,5 +53,3 @@ apps:
       - network-status
       # end clash subprocess
       - process-control
-    #slots:
-    #  - dbus-fclash
