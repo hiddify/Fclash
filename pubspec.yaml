@@ -32,12 +32,17 @@ dependencies:
   yaml: ^3.1.2
   yaml_writer: ^1.0.3
   flutter_svg: ^2.0.5
+  go_router: ^7.0.0
+  flex_color_scheme: ^7.0.5
+  slang: ^3.17.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^2.0.1
+  build_runner: ^2.3.3
+  slang_build_runner: ^3.17.0
 
 flutter:
   uses-material-design: true
