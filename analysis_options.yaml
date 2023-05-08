@@ -6,6 +6,8 @@ analyzer:
     - "**.g.dart"
     - "lib/generated/**"
     - "lib/generated_bindings.dart"
+  errors:
+    invalid_annotation_target: ignore
 
 linter:
   rules:

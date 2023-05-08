@@ -1,0 +1,39 @@
+{
+    "general": {
+        "appTitle": "hiddify",
+        "profile": "profile",
+        "proxy": "proxy",
+        "connectionMode": "mode",
+        "settings": "settings"
+    },
+    "profile": {
+        "status": {
+            "clickToConnect": "click to connect",
+            "connecting": "connecting",
+            "connected": "connected"
+        }
+    },
+    "addProfile": {
+        "message": "start by adding profile",
+        "scanQr": "scan qr code",
+        "fromClipboard": "add from clipboard"
+    },
+    "connectionSettings": {
+        "title": "Advanced",
+        "filters": {
+            "blockedOnly": "blocked addresses only",
+            "foreignOnly": "foreign addresses only",
+            "all": "all addresses"
+        },
+        "mode": {
+            "smart": "smart",
+            "loadBalance": "load balance",
+            "manual": "manual"
+        }
+    },
+    "settings": {
+        "appearance": "appearance",
+        "themeMode": "theme mode",
+        "darkIsBlack": "dark is black"
+    }
+}
