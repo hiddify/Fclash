@@ -338,7 +338,7 @@ packages:
     source: hosted
     version: "2.0.1"
   ffigen:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: ffigen
       sha256: ec6a2439159d27c871d92862fb9f3012ef19d9ec4b0fa383c69c8553b2dd2ac5
@@ -1101,6 +1101,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.2"
+  recase:
+    dependency: "direct main"
+    description:
+      name: recase
+      sha256: e4eb4ec2dcdee52dcf99cb4ceabaffc631d7424ee55e56f280bc039737f89213
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.1.0"
   riverpod:
     dependency: transitive
     description:
@@ -1231,6 +1239,14 @@ packages:
     description:
       name: slang_build_runner
       sha256: "4ea9a2a9301f4db815f475440cffbd137d4fd0273b19484d8fb0d24c99df33e8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.17.0"
+  slang_flutter:
+    dependency: "direct main"
+    description:
+      name: slang_flutter
+      sha256: e94985f9408381389f88b7c3de62154b85c91ce17d208c7b5813eacba673af95
       url: "https://pub.dev"
     source: hosted
     version: "3.17.0"
