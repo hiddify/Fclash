@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:fclash/screen/controller/theme_controller.dart';
-import 'package:fclash/screen/main_screen.dart';
-import 'package:fclash/service/autostart_service.dart';
-import 'package:fclash/service/clash_service.dart';
-import 'package:fclash/service/notification_service.dart';
-import 'package:fclash/translation/clash_translation.dart';
+import 'package:clashify/screen/controller/theme_controller.dart';
+import 'package:clashify/screen/main_screen.dart';
+import 'package:clashify/service/autostart_service.dart';
+import 'package:clashify/service/clash_service.dart';
+import 'package:clashify/service/notification_service.dart';
+import 'package:clashify/translation/clash_translation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide MenuItem;
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -54,17 +54,17 @@ Future<void> initWindow() async {
 Future<void> initAppTray(
     {List<MenuItem>? details, bool isUpdate = false}) async {
   await trayManager.setIcon(Platform.isWindows
-      ? 'assets/images/app_tray.ico'
-      : 'assets/images/app_tray.png');
+      ? 'assets/images/logo.ico'
+      : 'assets/images/logo.png');
   List<MenuItem> items = [
     MenuItem(
       key: 'show',
-      label: 'Show Fclash'.tr,
+      label: 'Show Clashify'.tr,
     ),
     MenuItem.separator(),
     MenuItem(
       key: 'exit',
-      label: 'Exit Fclash'.tr,
+      label: 'Exit Clashify'.tr,
     ),
   ];
   if (details != null) {
@@ -105,7 +105,7 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      title: 'FClash',
+      title: 'Clashify',
       theme: isDesktop ? ThemeData(
           primaryColor: Colors.blue,
           primarySwatch: Colors.blue,

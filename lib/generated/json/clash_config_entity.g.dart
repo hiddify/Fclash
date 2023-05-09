@@ -1,5 +1,5 @@
-import 'package:fclash/bean/clash_config_entity.dart';
-import 'package:fclash/generated/json/base/json_convert_content.dart';
+import 'package:clashify/bean/clash_config_entity.dart';
+import 'package:clashify/generated/json/base/json_convert_content.dart';
 
 ClashConfigEntity $ClashConfigEntityFromJson(Map<String, dynamic> json) {
   final ClashConfigEntity clashConfigEntity = ClashConfigEntity();

@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:fclash/service/clash_service.dart';
+import 'package:clashify/service/clash_service.dart';
 import 'package:flutter/material.dart';
 import 'package:kommon/kommon.dart';
 

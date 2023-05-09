@@ -15,16 +15,16 @@ class AboutPage extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 50.0),
             child: CircleAvatar(
-              foregroundImage: AssetImage("assets/images/app_tray.png"),
+              foregroundImage: AssetImage("assets/images/logo.png"),
               radius: 100,
             ),
           ),
           TextButton(
             onPressed: () {
-              LaunchUtils.openUrl("https://github.com/Kingtous/Fclash");
+              LaunchUtils.openUrl("https://github.com/hiddify/Fclash");
             },
             child: Text(
-              "Fclash - a clash proxy fronted by Flutter".tr,
+              "Clashify - a clash proxy fronted by Flutter".tr,
               style: const TextStyle(fontSize: 20),
             ),
           ),
@@ -35,7 +35,7 @@ class AboutPage extends StatelessWidget {
           TextButton(
               onPressed: () {
                 LaunchUtils.openUrl(
-                    "https://github.com/Kingtous/Fclash/actions");
+                    "https://github.com/hiddify/Fclash/actions");
               },
               child: Text("check for update".tr)),
           const Divider(

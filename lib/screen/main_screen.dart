@@ -1,15 +1,15 @@
 import 'dart:io';
 
-import 'package:fclash/main.dart';
-import 'package:fclash/screen/component/speed.dart';
-import 'package:fclash/screen/controller/theme_controller.dart';
-import 'package:fclash/screen/page/about.dart';
-import 'package:fclash/screen/page/clash_log.dart';
-import 'package:fclash/screen/page/connection.dart';
-import 'package:fclash/screen/page/profile.dart';
-import 'package:fclash/screen/page/proxy.dart';
-import 'package:fclash/screen/page/setting.dart';
-import 'package:fclash/service/clash_service.dart';
+import 'package:clashify/main.dart';
+import 'package:clashify/screen/component/speed.dart';
+import 'package:clashify/screen/controller/theme_controller.dart';
+import 'package:clashify/screen/page/about.dart';
+import 'package:clashify/screen/page/clash_log.dart';
+import 'package:clashify/screen/page/connection.dart';
+import 'package:clashify/screen/page/profile.dart';
+import 'package:clashify/screen/page/proxy.dart';
+import 'package:clashify/screen/page/setting.dart';
+import 'package:clashify/service/clash_service.dart';
 import 'package:flutter/material.dart' hide MenuItem;
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:kommon/kommon.dart';
@@ -98,11 +98,11 @@ class _MainScreenState extends State<MainScreen>
     return SafeArea(
       child: Scaffold(
           appBar: BrnAppBar(
-            title: "FClash",
+            title: "Clashify",
             brightness: Brightness.dark,
             actions: InkWell(
               onTap: () {
-                launchUrlString("https://github.com/FClash/FClash", mode: LaunchMode.externalApplication);
+                launchUrlString("https://github.com/hiddify/Fclash", mode: LaunchMode.externalApplication);
               },
               child: Icon(Icons.question_mark_sharp)),
           ),
@@ -129,8 +129,8 @@ class _MainScreenState extends State<MainScreen>
                     ? NoticeStyles.succeedWithArrow
                     : NoticeStyles.warningWithArrow,
                 content: cs.isSystemProxyObs.value
-                    ? "Fclash is running as system proxy now. Enjoy.".tr
-                    : 'Fclash is not set as system proxy. Software may not automatically use Fclash proxy.'
+                    ? "Clashify is running as system proxy now. Enjoy.".tr
+                    : 'Clashify is not set as system proxy. Software may not automatically use Fclash proxy.'
                         .tr,
                 rightWidget: cs.isSystemProxyObs.value
                     ? TextButton(
@@ -142,7 +142,7 @@ class _MainScreenState extends State<MainScreen>
                         onPressed: () {
                           cs.setSystemProxy();
                         },
-                        child: Text("set Fclash as system proxy".tr)),
+                        child: Text("set Clashify as system proxy".tr)),
               )),
           Expanded(
               child: Row(
@@ -318,8 +318,8 @@ class _MainScreenState extends State<MainScreen>
                     ? NoticeStyles.succeedWithArrow
                     : NoticeStyles.warningWithArrow,
                 content: cs.isSystemProxyObs.value
-                    ? "Fclash is running as system proxy now. Enjoy.".tr
-                    : 'Fclash is not set as system proxy. Software may not automatically use Fclash proxy.'
+                    ? "Clashify is running as system proxy now. Enjoy.".tr
+                    : 'Clashify is not set as system proxy. Software may not automatically use Fclash proxy.'
                         .tr,
                 rightWidget: cs.isSystemProxyObs.value
                     ? TextButton(
@@ -331,7 +331,7 @@ class _MainScreenState extends State<MainScreen>
                         onPressed: () {
                           cs.setSystemProxy();
                         },
-                        child: Text("set Fclash as system proxy".tr)),
+                        child: Text("set Clashify as system proxy".tr)),
               )),
         SizedBox(
           height: 75,
@@ -450,7 +450,7 @@ class AppIcon extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(12.0),
       child: const CircleAvatar(
-        foregroundImage: AssetImage("assets/images/app_tray.png"),
+        foregroundImage: AssetImage("assets/images/logo.png"),
         radius: 20,
       ),
     );

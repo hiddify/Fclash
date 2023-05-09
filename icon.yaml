@@ -1,12 +1,12 @@
 icons_launcher:
-  image_path: 'assets/images/app_tray.png'
+  image_path: 'assets/images/logo.png'
   platforms:
     linux:
       enable: true
-      image_path: 'assets/images/app_tray.png'
+      image_path: 'assets/images/logo.png'
     windows:
       enable: true
-      image_path: 'assets/images/app_tray.png'
+      image_path: 'assets/images/logo.png'
     macos:
       enable: true
-      image_path: 'assets/images/app_tray.png'
+      image_path: 'assets/images/logo.png'

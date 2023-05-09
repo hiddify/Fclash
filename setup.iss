@@ -4,7 +4,7 @@
 #define MyAppName "FClash"
 #define MyAppVersion "1.3.6"
 #define MyAppPublisher "Kingtous"
-#define MyAppURL "https://github.com/Kingtous/Fclash"
+#define MyAppURL "https://github.com/hiddify/Fclash"
 #define MyAppExeName "fclash.exe"
 #define MyAppAssocName MyAppName + " File"
 #define MyAppAssocExt ".myp"

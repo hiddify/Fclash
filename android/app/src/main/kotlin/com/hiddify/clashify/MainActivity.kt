@@ -1,4 +1,4 @@
-package com.example.fclash
+package com.hiddify.clashify
 
 import android.Manifest
 import android.content.Intent

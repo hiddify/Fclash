@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:fclash/main.dart';
-import 'package:fclash/tools/autostart_utils.dart';
+import 'package:clashify/main.dart';
+import 'package:clashify/tools/autostart_utils.dart';
 import 'package:kommon/kommon.dart';
 import 'package:launch_at_startup/launch_at_startup.dart';
 import 'package:package_info_plus/package_info_plus.dart';

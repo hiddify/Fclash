@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:fclash/generated/json/base/json_field.dart';
-import 'package:fclash/generated/json/clash_config_entity.g.dart';
+import 'package:clashify/generated/json/base/json_field.dart';
+import 'package:clashify/generated/json/clash_config_entity.g.dart';
 
 @JsonSerializable()
 class ClashConfigEntity {

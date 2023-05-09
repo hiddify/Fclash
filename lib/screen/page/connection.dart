@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:fclash/main.dart';
-import 'package:fclash/screen/controller/theme_controller.dart';
-import 'package:fclash/service/clash_service.dart';
+import 'package:clashify/main.dart';
+import 'package:clashify/screen/controller/theme_controller.dart';
+import 'package:clashify/service/clash_service.dart';
 import 'package:flutter/material.dart';
 import 'package:kommon/kommon.dart';
 

@@ -1,4 +1,4 @@
-package com.example.fclash
+package com.hiddify.clashify
 
 import alihoseinpoor.com.open_settings.OpenSettingsPlugin
 import android.app.NotificationChannel
