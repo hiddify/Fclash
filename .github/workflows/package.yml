@@ -12,6 +12,7 @@ on:
       - PKGBUILD
       - .SRCINFO
       - LICENSE
+permissions: write-all
 
 env:
   VERSION: 1.4.0
