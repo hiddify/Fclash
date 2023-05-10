@@ -6,7 +6,7 @@ import FlutterMacOS
 import Foundation
 
 import flutter_local_notifications
-import package_info_plus_macos
+import package_info_plus
 import path_provider_foundation
 import proxy_manager
 import screen_retriever

@@ -9,7 +9,7 @@ class NotificationService extends GetxService {
   Future<NotificationService> init() async {
     await notification.initialize(const InitializationSettings(
         linux: LinuxInitializationSettings(defaultActionName: 'act'),
-        macOS: MacOSInitializationSettings(),
+        macOS: DarwinInitializationSettings(),
         android: AndroidInitializationSettings("fclash")));
     return this;
   }
@@ -22,7 +22,7 @@ class NotificationService extends GetxService {
         const NotificationDetails(
             linux: LinuxNotificationDetails(
                 urgency: LinuxNotificationUrgency.normal),
-            macOS: MacOSNotificationDetails(),
+            macOS: DarwinNotificationDetails(),
             android:
                 AndroidNotificationDetails("cn.kingtous.fclash", "fclash")));
   }
