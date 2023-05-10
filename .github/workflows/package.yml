@@ -1,4 +1,4 @@
-name: Build Desktop Packages
+name: Build Packages
 
 on:
   workflow_dispatch:
