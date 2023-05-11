@@ -5,7 +5,7 @@ import 'package:loggy/loggy.dart';
 /// used in notifiers and controllers
 mixin AppLogger implements LoggyType {
   @override
-  Loggy<AppLogger> get loggy => Loggy<AppLogger>('🧮App Logger - $runtimeType');
+  Loggy<AppLogger> get loggy => Loggy<AppLogger>('🧮 $runtimeType');
 }
 
 /// presentation layer logger
@@ -13,8 +13,7 @@ mixin AppLogger implements LoggyType {
 /// used in widgets and ui
 mixin PresLogger implements LoggyType {
   @override
-  Loggy<PresLogger> get loggy =>
-      Loggy<PresLogger>('🏰Presentation Logger - $runtimeType');
+  Loggy<PresLogger> get loggy => Loggy<PresLogger>('🏰 $runtimeType');
 }
 
 /// data layer logger
@@ -22,6 +21,11 @@ mixin PresLogger implements LoggyType {
 /// used in Repositories, DAOs, Services
 mixin InfraLogger implements LoggyType {
   @override
-  Loggy<InfraLogger> get loggy =>
-      Loggy<InfraLogger>('💾Data Logger - $runtimeType');
+  Loggy<InfraLogger> get loggy => Loggy<InfraLogger>('💾 $runtimeType');
+}
+
+abstract class LoggerMixin {
+  LoggerMixin(this.loggy);
+
+  final Loggy loggy;
 }
