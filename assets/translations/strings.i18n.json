@@ -13,11 +13,6 @@
             "connected": "connected"
         }
     },
-    "addProfile": {
-        "message": "start by adding profile",
-        "scanQr": "scan qr code",
-        "fromClipboard": "add from clipboard"
-    },
     "connectionSettings": {
         "title": "Advanced",
         "filters": {
@@ -31,9 +26,49 @@
             "manual": "manual"
         }
     },
+    "proxies": {
+        "pageTitle": "proxies"
+    },
+    "profiles": {
+        "pageTitle": "profiles",
+        "emptyMessage": "start by adding profile",
+        "addProfile": "add profile",
+        "scanQr": "scan qr code",
+        "fromClipboard": "add from clipboard"
+    },
+    "profileDetail": {
+        "pageTitle": "profile",
+        "name": "name",
+        "url": "url",
+        "save": "save"
+    },
+    "connections": {
+        "pageTitle": "connections",
+        "total": "total",
+        "closeAll": "close all"
+    },
+    "logs": {
+        "pageTitle": "logs"
+    },
     "settings": {
+        "pageTitle": "settings",
         "appearance": "appearance",
         "themeMode": "theme mode",
-        "darkIsBlack": "dark is black"
+        "darkIsBlack": "dark is black",
+        "proxy": "proxy",
+        "proxyMode": "mode",
+        "httpPort": "HTTP port",
+        "socks5Port": "socks port",
+        "redirPort": "redirect port",
+        "tproxyPort": "TProxy port",
+        "mixedPort": "mixed port",
+        "allowLan": "allow lan",
+        "enableIpv6": "enable IPv6"
+    },
+    "tray": {
+        "showApp": "show app",
+        "exitApp": "exit app",
+        "setSystemProxy": "set system proxy",
+        "clearSystemProxy": "clear system proxy"
     }
 }
