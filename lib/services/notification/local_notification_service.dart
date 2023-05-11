@@ -75,7 +75,7 @@ class LocalNotificationService with InfraLogger implements NotificationService {
       details ??
           const NotificationDetails(
             linux: LinuxNotificationDetails(
-                urgency: LinuxNotificationUrgency.normal),
+                urgency: LinuxNotificationUrgency.normal,),
             macOS: DarwinNotificationDetails(),
             android: AndroidNotificationDetails(
               "cn.kingtous.fclash",
