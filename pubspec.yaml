@@ -4,7 +4,7 @@ publish_to: 'none'
 aversion: 1.4.0
 
 environment:
-  sdk: ">=2.16.2 <3.0.0"
+  sdk: ">=2.19.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -13,20 +13,18 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.5
-  kommon: ^0.4.0
-  path: ^1.8.2
-  path_provider: ^2.0.14
+  path: ^1.8.3
+  path_provider: ^2.0.15
   tray_manager: ^0.2.0
   window_manager: ^0.3.2
   settings_ui: ^2.0.2
   launch_at_startup: ^0.2.2
-  package_info_plus: ^3.1.2
+  package_info_plus: ^4.0.0
   flutter_local_notifications: ^14.0.0+1
-  ffigen: ^6.0.0
   proxy_manager: ^0.0.3
   clipboard: ^0.1.3
-  url_launcher: 6.1.10
-  icons_launcher: ^2.0.4
+  url_launcher: ^6.1.11
+  icons_launcher: ^2.1.0
   system_proxy: ^0.1.0
   open_settings: ^2.0.2
   yaml: ^3.1.2
@@ -38,19 +36,29 @@ dependencies:
   hooks_riverpod: ^2.3.6
   flutter_hooks: ^0.18.6
   loggy: ^2.0.3
-  dio: ^4.0.6
-  ffi: ^2.0.1
+  dio: ^5.1.2
+  ffi: ^2.0.2
   freezed_annotation: ^2.2.0
   json_annotation: ^4.8.1
   rxdart: ^0.27.7
-  shared_preferences: ^2.1.0
+  shared_preferences: ^2.1.1
+  slang_flutter: ^3.17.0
+  recase: ^4.1.0
+  layout: ^1.0.3
+  flutter_adaptive_scaffold: ^0.1.3
+  meta: ^1.9.1
+  intl: ^0.18.0
+  dartx: ^1.1.0
+  uuid: ^3.0.7
+  fpdart: ^0.6.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.1
-  build_runner: ^2.3.3
+  lint: ^2.1.1
+  build_runner: ^2.4.2
+  ffigen: ^8.0.0
   slang_build_runner: ^3.17.0
   freezed: ^2.3.3
   json_serializable: ^6.6.2
@@ -61,16 +69,10 @@ flutter:
     - assets/tp/clash/
     - assets/images/
 
-  fonts:
-    - family: nssc
-      fonts:
-        - asset: fonts/NotoSansSC-Regular.otf
-
-flutter_intl:
-  enabled: true
-
 ffigen:
-  output: 'lib/generated_bindings.dart'
+  name: 'ClashNativeLibrary'
+  description: 'Bindings to Clash'
+  output: 'lib/gen/generated_bindings.dart'
   headers:
     entry-points:
       - 'clash/libclash.h'
