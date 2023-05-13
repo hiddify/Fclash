@@ -11,7 +11,7 @@ on:
       - PKGBUILD
       - .SRCINFO
       - LICENSE
-
+permissions: write-all
 jobs:
   build-clash-lib:
     strategy:

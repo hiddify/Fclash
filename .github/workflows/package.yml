@@ -1,4 +1,4 @@
-name: Build Desktop Packages
+name: Build Packages
 
 on:
   workflow_dispatch:
@@ -12,10 +12,11 @@ on:
       - PKGBUILD
       - .SRCINFO
       - LICENSE
+permissions: write-all
 
 env:
   VERSION: 1.4.0
-  FLUTTER_BASE_VERSION: 3.7.1
+  FLUTTER_BASE_VERSION: 3.7.10
   FLUTTER_ELINUX_GIT_COMMIT_ID: 5cc0e4fd62a689c51b72612cdd9745dc66086475
 
 jobs:
@@ -58,7 +59,7 @@ jobs:
           name: fclash-${{ env.VERSION }}-x86_64.exe
           path: ./Output/fclash-${{ env.VERSION }}-x86_64.exe
       - uses: ncipollo/release-action@v1
-        # if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v')
         with:
           tag: v${{ env.VERSION }}
           allowUpdates: true
@@ -105,7 +106,7 @@ jobs:
           name: fclash-${{ env.VERSION}}.dmg
           path: fclash-${{ env.VERSION}}.dmg
       - uses: ncipollo/release-action@v1
-        # if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v')
         with:
           tag: v${{ env.VERSION }}
           allowUpdates: true
@@ -155,7 +156,7 @@ jobs:
           name: cn.kingtous.fclash-${{ env.VERSION }}-x86_64.deb
           path: ./debian/cn.kingtous.fclash-${{ env.VERSION }}-x86_64.deb
       - uses: ncipollo/release-action@v1
-        # if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v')
         with:
           tag: v${{ env.VERSION }}
           allowUpdates: true
@@ -187,7 +188,7 @@ jobs:
           FCLASH_SRC=`pwd` rpmbuild -bb ./rpm.spec
       
       - uses: ncipollo/release-action@v1
-        # if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v')
         with:
           tag: v${{ env.VERSION }}
           allowUpdates: true
@@ -233,7 +234,7 @@ jobs:
           name: fclash-${{ env.VERSION}}-arm64-v8a.apk
           path: fclash-${{ env.VERSION}}-arm64-v8a.apk
       - uses: ncipollo/release-action@v1
-        # if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v')
         with:
           tag: v${{ env.VERSION }}
           allowUpdates: true
@@ -321,7 +322,7 @@ jobs:
           name: cn.kingtous.fclash-${{ env.VERSION }}-aarch64.deb
           path: ./debian/cn.kingtous.fclash-${{ env.VERSION }}-aarch64.deb
       - uses: ncipollo/release-action@v1
-        # if: startsWith(github.ref, 'refs/tags/v')
+        if: startsWith(github.ref, 'refs/tags/v')
         with:
           tag: v${{ env.VERSION }}
           allowUpdates: true
