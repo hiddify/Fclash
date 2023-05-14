@@ -1,4 +1,4 @@
-name: fclash
+name: clashify
 description: A clash proxy fronted.
 publish_to: 'none'
 aversion: 1.4.0
@@ -20,7 +20,7 @@ dependencies:
   settings_ui: ^2.0.2
   launch_at_startup: ^0.2.2
   package_info_plus: ^4.0.0
-  flutter_local_notifications: ^14.0.0+1
+  flutter_local_notifications: ^14.0.0+2
   proxy_manager: ^0.0.3
   clipboard: ^0.1.3
   url_launcher: ^6.1.11
@@ -30,8 +30,8 @@ dependencies:
   yaml: ^3.1.2
   yaml_writer: ^1.0.3
   flutter_svg: ^2.0.5
-  go_router: ^7.0.0
-  flex_color_scheme: ^7.0.5
+  go_router: ^7.0.1
+  flex_color_scheme: ^7.1.0
   slang: ^3.17.0
   hooks_riverpod: ^2.3.6
   flutter_hooks: ^0.18.6
@@ -51,17 +51,28 @@ dependencies:
   dartx: ^1.1.0
   uuid: ^3.0.7
   fpdart: ^0.6.0
+  sliver_tools: ^0.2.10
+  drift: ^2.8.0
+  sqlite3_flutter_libs: ^0.5.15
+  gap: ^2.0.2
+  duration: ^3.0.12
+  flutter_native_splash: ^2.2.19
+  stack_trace: ^1.11.0
+  timeago: ^3.4.0
+  web_socket_channel: ^2.4.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  lint: ^2.1.1
-  build_runner: ^2.4.2
-  ffigen: ^8.0.0
-  slang_build_runner: ^3.17.0
-  freezed: ^2.3.3
+  lint: ^2.1.2
+  build_runner: ^2.4.4
+  freezed: ^2.3.4
   json_serializable: ^6.6.2
+  ffigen: 7.2.11
+  slang_build_runner: ^3.17.0
+  drift_dev: ^2.8.0
+  flutter_gen_runner: ^5.3.1
 
 flutter:
   uses-material-design: true
@@ -69,10 +80,15 @@ flutter:
     - assets/tp/clash/
     - assets/images/
 
+flutter_gen:
+  output: lib/gen/
+  integrations:
+    flutter_svg: true
+
 ffigen:
   name: 'ClashNativeLibrary'
   description: 'Bindings to Clash'
   output: 'lib/gen/generated_bindings.dart'
   headers:
     entry-points:
-      - 'clash/libclash.h'
+      - 'clash/dist/libclash.h'

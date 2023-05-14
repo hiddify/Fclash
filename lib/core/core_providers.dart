@@ -1,4 +1,4 @@
-import 'package:fclash/core/prefs/locale/locale.dart';
+import 'package:clashify/core/prefs/prefs.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 abstract class Core {

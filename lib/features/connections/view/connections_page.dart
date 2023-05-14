@@ -1,6 +1,6 @@
-import 'package:fclash/features/connections/notifier/notifier.dart';
-import 'package:fclash/features/connections/widgets/widgets.dart';
-import 'package:fclash/utils/utils.dart';
+import 'package:clashify/features/connections/notifier/notifier.dart';
+import 'package:clashify/features/connections/widgets/widgets.dart';
+import 'package:clashify/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

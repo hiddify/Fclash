@@ -6,6 +6,22 @@
         "connectionMode": "mode",
         "settings": "settings"
     },
+    "home": {
+        "addNewProfile": "add new profile",
+        "advanced": "advanced",
+        "emptyProfilesMsg": "start by adding subscription profile",
+        "addFromClipboard": "add from clipboard",
+        "scanQr": "scan qr code",
+        "tapToConnect": "tap to connect",
+        "connected": "connected",
+        "delay": "delay",
+        "updatedTimeAgo": "updated ${timeAgo}",
+        "subscriptionState": {
+            "remaining": "remaining",
+            "expired": "expired",
+            "noTraffic": "no traffic"
+        }
+    },
     "profile": {
         "status": {
             "clickToConnect": "click to connect",
@@ -70,5 +86,24 @@
         "exitApp": "exit app",
         "setSystemProxy": "set system proxy",
         "clearSystemProxy": "clear system proxy"
+    },
+    "failure": {
+        "unexpected": "unexpected",
+        "network": {
+            "noInternetConnection": "no internet connection",
+            "requestCancelled": "request cancelled",
+            "notFound": "not found",
+            "unauthorisedRequest": "unauthorised request",
+            "badRequest": "bad request",
+            "sendTimeout": "send timeout",
+            "requestTimeout": "request timeout",
+            "conflict": "conflict",
+            "internalServerError": "internal server error",
+            "serviceUnavailable": "service unavailable"
+        },
+        "database": {
+            "itemNotFound": "item not found",
+            "itemAlreadyExists": "item already exists"
+        }
     }
 }

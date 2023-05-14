@@ -1,5 +1,5 @@
-// import 'package:fclash/domain/models/clash_proxy.dart';
-// import 'package:fclash/features/proxy/notifier/notifier.dart';
+// import 'package:clashify/domain/models/clash_proxy.dart';
+// import 'package:clashify/features/proxy/notifier/notifier.dart';
 // import 'package:flutter/material.dart';
 // import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -68,9 +68,8 @@
 //   }
 // }
 
-import 'package:fclash/domain/models/clash_proxy.dart';
-import 'package:fclash/domain/models/clash_proxy_group.dart';
-import 'package:fclash/features/proxies/notifier/notifier.dart';
+import 'package:clashify/domain/clash/clash.dart';
+import 'package:clashify/features/proxies/notifier/notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

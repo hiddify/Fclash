@@ -1,4 +1,4 @@
-import 'package:fclash/domain/models/profile.dart';
+import 'package:clashify/domain/profiles/profiles.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'profiles_state.freezed.dart';

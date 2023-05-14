@@ -1,5 +1,5 @@
-import 'package:fclash/core/core_providers.dart';
-import 'package:fclash/utils/utils.dart';
+import 'package:clashify/core/core_providers.dart';
+import 'package:clashify/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:recase/recase.dart';
@@ -12,8 +12,8 @@ class ConnectionsAppBar extends HookConsumerWidget {
     required this.onCloseAllConnections,
   });
 
-  final double upload;
-  final double download;
+  final int upload;
+  final int download;
   final VoidCallback onCloseAllConnections;
 
   @override

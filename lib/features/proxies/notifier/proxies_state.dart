@@ -1,4 +1,4 @@
-import 'package:fclash/domain/models/clash_proxy_group.dart';
+import 'package:clashify/domain/clash/clash.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'proxies_state.freezed.dart';
@@ -9,5 +9,6 @@ class ProxiesState with _$ProxiesState {
 
   const factory ProxiesState({
     @Default([]) List<ClashProxyGroup> selectors,
+    @Default(false) bool isSystemProxy,
   }) = _ProxiesState;
 }

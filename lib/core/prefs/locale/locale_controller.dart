@@ -1,6 +1,6 @@
-import 'package:fclash/core/prefs/locale/app_locale.dart';
-import 'package:fclash/data/data_providers.dart';
-import 'package:fclash/utils/utils.dart';
+import 'package:clashify/core/prefs/locale/app_locale.dart';
+import 'package:clashify/data/data_providers.dart';
+import 'package:clashify/utils/utils.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class LocaleController extends Notifier<AppLocale> with AppLogger {

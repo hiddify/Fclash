@@ -1,7 +1,6 @@
-import 'package:fclash/core/clash/clash.dart';
-import 'package:fclash/features/proxies/notifier/notifier.dart';
-import 'package:fclash/features/proxies/widgets/widgets.dart';
-import 'package:fclash/utils/utils.dart';
+import 'package:clashify/features/proxies/notifier/notifier.dart';
+import 'package:clashify/features/proxies/widgets/widgets.dart';
+import 'package:clashify/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -11,8 +10,7 @@ class ProxiesPage extends HookConsumerWidget with PresLogger {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(ProxiesNotifier.provider);
-    final isSystemProxy = ref
-        .watch(ClashController.provider.select((value) => value.isSystemProxy));
+    final notifier = ref.watch(ProxiesNotifier.provider.notifier);
 
     return Scaffold(
       body: CustomScrollView(
@@ -31,16 +29,15 @@ class ProxiesPage extends HookConsumerWidget with PresLogger {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          if (isSystemProxy) {
-            await ref
-                .read(ClashController.provider.notifier)
-                .clearSystemProxy();
+          if (state.isSystemProxy) {
+            await notifier.clearSystemProxy();
           } else {
-            await ref.read(ClashController.provider.notifier).setSystemProxy();
+            await notifier.setSystemProxy();
           }
         },
-        child:
-            isSystemProxy ? const Icon(Icons.wifi_off) : const Icon(Icons.wifi),
+        child: state.isSystemProxy
+            ? const Icon(Icons.wifi_off)
+            : const Icon(Icons.wifi),
       ),
     );
   }

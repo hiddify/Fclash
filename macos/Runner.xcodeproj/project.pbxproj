@@ -76,8 +76,8 @@
 		6DD5C506447D523F6DD93E6E /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		A99E09D128CD9CB8000C5FBC /* libclash.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libclash.dylib; path = ../clash/libclash.dylib; sourceTree = "<group>"; };
-		A99E09D328CD9D24000C5FBC /* libclash.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libclash.dylib; path = ../clash/libclash.dylib; sourceTree = "<group>"; };
+		A99E09D128CD9CB8000C5FBC /* libclash.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libclash.dylib; path = ../clash/dist/libclash.dylib; sourceTree = "<group>"; };
+		A99E09D328CD9D24000C5FBC /* libclash.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libclash.dylib; path = ../clash/dist/libclash.dylib; sourceTree = "<group>"; };
 		E8F0B453543829746D746A17 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 

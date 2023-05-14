@@ -1,7 +1,7 @@
-import 'package:fclash/core/prefs/locale/locale.dart';
-import 'package:fclash/core/prefs/theme/theme.dart';
-import 'package:fclash/core/router/router.dart';
-import 'package:fclash/utils/utils.dart';
+import 'package:clashify/core/prefs/locale/locale.dart';
+import 'package:clashify/core/prefs/theme/theme.dart';
+import 'package:clashify/core/router/router.dart';
+import 'package:clashify/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';

@@ -3,5 +3,7 @@ export 'loggers.dart';
 export 'mutation_state.dart';
 export 'number_formatters.dart';
 export 'platform_utils.dart';
+export 'pref_store.dart';
 export 'preferences.dart';
+export 'string_formatters.dart';
 export 'validators.dart';

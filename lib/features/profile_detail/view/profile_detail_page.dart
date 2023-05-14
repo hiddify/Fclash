@@ -1,23 +1,32 @@
-import 'package:fclash/core/core_providers.dart';
-import 'package:fclash/features/profile_detail/notifier/notifier.dart';
-import 'package:fclash/utils/utils.dart';
+import 'package:clashify/core/core_providers.dart';
+import 'package:clashify/features/profile_detail/notifier/notifier.dart';
+import 'package:clashify/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:recase/recase.dart';
 
 class ProfileDetailPage extends HookConsumerWidget with PresLogger {
-  const ProfileDetailPage(this.id, {super.key});
+  const ProfileDetailPage(
+    this.id, {
+    super.key,
+    this.url,
+  });
 
   final String id;
+  final String? url;
+
+  Tuple2<String, String> get _providerId => Tuple2(id, url ?? '');
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final t = ref.watch(Core.translations);
-    final asyncState = ref.watch(ProfileDetailNotifier.provider(id));
-    final notifier = ref.watch(ProfileDetailNotifier.provider(id).notifier);
+    final asyncState = ref.watch(ProfileDetailNotifier.provider(_providerId));
+    final notifier =
+        ref.watch(ProfileDetailNotifier.provider(_providerId).notifier);
 
     ref.listen(
-      ProfileDetailNotifier.provider(id)
+      ProfileDetailNotifier.provider(_providerId)
           .select((data) => data.whenData((value) => value.save)),
       (_, next) {
         next.whenOrNull(
@@ -64,9 +73,8 @@ class ProfileDetailPage extends HookConsumerWidget with PresLogger {
                 TextFormField(
                   initialValue: state.profile.url,
                   onChanged: (value) => notifier.setField(url: value),
-                  validator: (value) => (value == null ? false : !isUrl(value))
-                      ? 'invalid url'
-                      : null,
+                  validator: (value) =>
+                      (value != null && !isUrl(value)) ? 'invalid url' : null,
                   decoration: InputDecoration(
                     label: Text(t.profileDetail.url.toUpperCase()),
                   ),

@@ -1,9 +1,7 @@
-import 'package:fclash/core/clash/clash.dart';
-import 'package:fclash/core/core_providers.dart';
-import 'package:fclash/core/prefs/theme/theme.dart';
-import 'package:fclash/features/settings/widgets/widgets.dart';
+import 'package:clashify/core/core_providers.dart';
+import 'package:clashify/core/prefs/theme/theme.dart';
+import 'package:clashify/features/settings/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:fpdart/fpdart.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:recase/recase.dart';
 
@@ -16,8 +14,8 @@ class SettingsPage extends HookConsumerWidget {
 
     final theme = ref.watch(ThemeController.provider);
     final themeController = ref.watch(ThemeController.provider.notifier);
-    final clashOverrides = ref.watch(ClashController.provider);
-    final clashController = ref.watch(ClashController.provider.notifier);
+    // final clashOverrides = ref.watch(Facade.clash);
+    // final clashController = ref.watch(Facade.clash);
 
     return Scaffold(
       appBar: AppBar(
@@ -56,21 +54,21 @@ class SettingsPage extends HookConsumerWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Text(t.settings.proxy.titleCase),
           ),
-          ListTile(
-            title: Text(t.settings.httpPort),
-            trailing: Text(clashOverrides.overrides.httpPort.toString()),
-            onTap: () {
-              SettingsInputDialog<int>(
-                title: t.settings.httpPort,
-                initialValue: clashOverrides.overrides.httpPort,
-                onConfirm: (value) async {
-                  final input = int.tryParse(value);
-                  if (input == null) return;
-                  await clashController.changeOverrides(httpPort: some(input));
-                },
-              ).show(context);
-            },
-          ),
+          // ListTile(
+          //   title: Text(t.settings.httpPort),
+          //   trailing: Text(clashOverrides.overrides.httpPort.toString()),
+          //   onTap: () {
+          //     SettingsInputDialog<int>(
+          //       title: t.settings.httpPort,
+          //       initialValue: clashOverrides.overrides.httpPort,
+          //       onConfirm: (value) async {
+          //         final input = int.tryParse(value);
+          //         if (input == null) return;
+          //         await clashController.changeOverrides(httpPort: some(input));
+          //       },
+          //     ).show(context);
+          //   },
+          // ),
         ],
       ),
     );

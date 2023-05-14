@@ -1,4 +1,4 @@
-import 'package:fclash/domain/models/clash_log.dart';
+import 'package:clashify/domain/clash/clash.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'logs_state.freezed.dart';

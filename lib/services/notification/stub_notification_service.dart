@@ -1,4 +1,4 @@
-import 'package:fclash/services/notification/notification_service.dart';
+import 'package:clashify/services/notification/notification_service.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class StubNotificationService implements NotificationService {

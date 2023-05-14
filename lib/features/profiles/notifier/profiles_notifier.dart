@@ -1,12 +1,12 @@
+import 'dart:async';
+
+import 'package:clashify/data/data_providers.dart';
+import 'package:clashify/domain/failures.dart';
+import 'package:clashify/domain/profiles/profiles.dart';
+import 'package:clashify/features/profiles/notifier/profiles_state.dart';
+import 'package:clashify/utils/utils.dart';
 import 'package:dartx/dartx.dart';
-import 'package:fclash/data/prefs_providers.dart';
-import 'package:fclash/data/prefs_store.dart';
-import 'package:fclash/data/profiles_store.dart';
-import 'package:fclash/domain/models/profile.dart';
-import 'package:fclash/features/profiles/notifier/profiles_state.dart';
-import 'package:fclash/features/proxies/notifier/notifier.dart';
-import 'package:fclash/services/service_providers.dart';
-import 'package:fclash/utils/utils.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ProfilesNotifier extends Notifier<ProfilesState> with AppLogger {
@@ -17,47 +17,46 @@ class ProfilesNotifier extends Notifier<ProfilesState> with AppLogger {
   ProfilesState build() {
     state = const ProfilesState();
     init();
+    ref.onDispose(
+      () {
+        _listener?.cancel();
+      },
+    );
     return state;
   }
 
-  SimplePrefStore<String> get _activeProfileId =>
-      ref.read(Pref.activeProfileId);
+  ProfilesRepository get _profilesRepo => ref.read(Repository.profiles);
+  StreamSubscription<Either<Failure, List<Profile>>>? _listener;
 
   Future<void> init() async {
     loggy.debug('initializing');
-    final activeProfileId = await _activeProfileId.get();
-    Profile? activeProfile;
-    if (activeProfileId.isNotBlank) {
-      activeProfile =
-          await ref.read(ProfileStore.provider.notifier).get(activeProfileId);
-    }
-    state = state.copyWith(selectedProfile: activeProfile);
-    ref.listen(
-      ProfileStore.provider,
-      (_, profiles) {
-        loggy.debug('new profiles length= ${profiles.length}');
-        state = state.copyWith(
-          profiles: profiles.toList(),
+    _listener = _profilesRepo.watchAll().listen(
+      (failureOrProfiles) {
+        failureOrProfiles.fold(
+          (l) {
+            loggy.warning('failed to receive profiled, $l');
+          },
+          (profiles) {
+            state = state.copyWith(
+              profiles: profiles,
+              selectedProfile: profiles.firstOrNullWhere((e) => e.active),
+            );
+          },
         );
       },
-      fireImmediately: true,
     );
   }
 
   Future<void> selectActiveProfile(String id) async {
-    loggy.debug('selecting active profile id: $id');
-    final newActiveProfile = state.profiles.firstOrNullWhere((e) => e.id == id);
-    if (newActiveProfile == null) {
-      loggy.warning("profile with id: $id doesn't exist");
-      return;
-    }
-    final result = await ref.read(Services.clash).setConfigById(id);
-    if (result) {
-      await _activeProfileId.update(id);
-      state = state.copyWith(selectedProfile: newActiveProfile);
-      ref.invalidate(ProxiesNotifier.provider);
-    } else {
-      loggy.warning('failed to change config');
-    }
+    loggy.debug('setting active profile to: $id');
+    await _profilesRepo.setAsActive(id).then(
+          (value) => value.match(
+            (l) {
+              loggy.warning('failed to set $id as active profile, $l');
+              // propagate error
+            },
+            (_) => null,
+          ),
+        );
   }
 }

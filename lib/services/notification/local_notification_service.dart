@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:fclash/services/notification/notification_service.dart';
-import 'package:fclash/utils/utils.dart';
+import 'package:clashify/services/notification/notification_service.dart';
+import 'package:clashify/utils/utils.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
@@ -10,6 +10,7 @@ void notificationTapBackground(NotificationResponse notificationResponse) {
   // TODO: handle action
 }
 
+// ignore: unreachable_from_main
 class LocalNotificationService with InfraLogger implements NotificationService {
   LocalNotificationService(this.flutterLocalNotificationsPlugin);
 
@@ -75,7 +76,8 @@ class LocalNotificationService with InfraLogger implements NotificationService {
       details ??
           const NotificationDetails(
             linux: LinuxNotificationDetails(
-                urgency: LinuxNotificationUrgency.normal,),
+              urgency: LinuxNotificationUrgency.normal,
+            ),
             macOS: DarwinNotificationDetails(),
             android: AndroidNotificationDetails(
               "cn.kingtous.fclash",

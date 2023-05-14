@@ -1,5 +1,5 @@
-import 'package:fclash/domain/models/profile.dart';
-import 'package:fclash/utils/utils.dart';
+import 'package:clashify/domain/profiles/profiles.dart';
+import 'package:clashify/utils/utils.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'profile_detail_state.freezed.dart';

@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
-set(BINARY_NAME "fclash")
-set(APPLICATION_ID "cn.kingtous.fclash")
+set(BINARY_NAME "Clashify")
+set(APPLICATION_ID "com.hiddify.clashify")
 
 cmake_policy(SET CMP0063 NEW)
 
@@ -92,7 +92,7 @@ install(FILES "${FLUTTER_ICU_DATA_FILE}" DESTINATION "${INSTALL_BUNDLE_DATA_DIR}
   COMPONENT Runtime)
 
 # libclash.so
-install(FILES "../clash/libclash.so" DESTINATION "${INSTALL_BUNDLE_LIB_DIR}"
+install(FILES "../clash/dist/libclash.so" DESTINATION "${INSTALL_BUNDLE_LIB_DIR}"
 COMPONENT Runtime)
 
 install(FILES "${FLUTTER_LIBRARY}" DESTINATION "${INSTALL_BUNDLE_LIB_DIR}"

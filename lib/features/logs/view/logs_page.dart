@@ -1,4 +1,4 @@
-import 'package:fclash/features/logs/notifier/notifier.dart';
+import 'package:clashify/features/logs/notifier/notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

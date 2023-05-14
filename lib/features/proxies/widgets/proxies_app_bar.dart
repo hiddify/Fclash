@@ -1,4 +1,4 @@
-import 'package:fclash/domain/enums.dart';
+import 'package:clashify/domain/enums.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:recase/recase.dart';

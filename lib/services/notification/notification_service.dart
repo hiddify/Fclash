@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:fclash/services/notification/local_notification_service.dart';
-import 'package:fclash/services/notification/stub_notification_service.dart';
+import 'package:clashify/services/notification/local_notification_service.dart';
+import 'package:clashify/services/notification/stub_notification_service.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 abstract class NotificationService {

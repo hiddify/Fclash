@@ -1,16 +1,17 @@
-import 'package:fclash/services/auto_start_service.dart';
-import 'package:fclash/services/clash/clash.dart';
-import 'package:fclash/services/notification/notification.dart';
+import 'package:clashify/services/auto_start_service.dart';
+import 'package:clashify/services/clash/clash.dart';
+import 'package:clashify/services/files_editor_service.dart';
+import 'package:clashify/services/notification/notification.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:proxy_manager/proxy_manager.dart';
 
 abstract class Services {
-  static final notification = Provider((ref) => NotificationService());
-  static final proxyManager = Provider((ref) => ProxyManager());
+  static final notification = Provider((_) => NotificationService());
+
+  static final filesEditor = Provider((_) => FilesEditorService());
+
   static final clash = Provider<ClashService>(
-    (ref) => ClashServiceImpl(
-      proxyManager: ref.read(proxyManager),
-    ),
+    (_) => ClashServiceImpl(),
   );
-  static final autoStart = Provider((ref) => AutoStartService());
+
+  static final autoStart = Provider((_) => AutoStartService());
 }

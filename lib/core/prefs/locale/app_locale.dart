@@ -1,8 +1,8 @@
+import 'package:clashify/gen/translations.g.dart';
 import 'package:dartx/dartx.dart';
-import 'package:fclash/gen/translations.g.dart';
 import 'package:flutter/widgets.dart';
 
-export 'package:fclash/gen/translations.g.dart' hide AppLocale;
+export 'package:clashify/gen/translations.g.dart' hide AppLocale;
 
 enum AppLocale {
   en;

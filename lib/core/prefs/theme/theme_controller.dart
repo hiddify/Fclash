@@ -1,6 +1,6 @@
-import 'package:fclash/core/prefs/theme/theme_prefs.dart';
-import 'package:fclash/data/data_providers.dart';
-import 'package:fclash/utils/utils.dart';
+import 'package:clashify/core/prefs/theme/theme_prefs.dart';
+import 'package:clashify/data/data_providers.dart';
+import 'package:clashify/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

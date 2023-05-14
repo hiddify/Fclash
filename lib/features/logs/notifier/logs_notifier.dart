@@ -1,7 +1,5 @@
-import 'package:fclash/features/logs/notifier/logs_state.dart';
-import 'package:fclash/services/clash/clash.dart';
-import 'package:fclash/services/service_providers.dart';
-import 'package:fclash/utils/utils.dart';
+import 'package:clashify/features/logs/notifier/logs_state.dart';
+import 'package:clashify/utils/utils.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class LogsNotifier extends Notifier<LogsState> with AppLogger {
@@ -15,15 +13,13 @@ class LogsNotifier extends Notifier<LogsState> with AppLogger {
     return state;
   }
 
-  ClashService get _clash => ref.read(Services.clash);
-
   Future<void> init() async {
     loggy.debug('initializing');
-    _clash.startLogging().listen(
-      (event) {
-        loggy.debug('log event received: $event');
-        state = state.copyWith(logs: [...state.logs, event]);
-      },
-    );
+    // _clash.startLogging().listen(
+    //   (event) {
+    //     loggy.debug('log event received: $event');
+    //     state = state.copyWith(logs: [...state.logs, event]);
+    //   },
+    // );
   }
 }
