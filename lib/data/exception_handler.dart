@@ -61,18 +61,19 @@ Failure exceptionMapper(
   } else if (e is DatabaseFailure) {
     return onDatabaseError?.call(e) ?? e;
   } else if (e is DriftRemoteException) {
-    final failure = DatabaseFailure.fromRemoteException(e);
-    return onDatabaseError?.call(failure) ?? Database(failure);
+    // TODO: improve
+    final failure = DatabaseFailure.unexpected(e);
+    return onDatabaseError?.call(failure) ?? failure;
   } else if (e is DioError) {
     return onNetworkError?.call(e.toFailure()) ?? e.toFailure();
   } else if (e is SocketException) {
-    const failure = NetworkFailure.unexpected();
+    final failure = NetworkFailure.unexpected(e);
     return onNetworkError?.call(failure) ?? failure;
   } else if (e is FormatException) {
     const failure = ParserFailure.unexpected();
     return onParserError?.call(failure) ?? failure;
   }
-  return Other(e);
+  return UnexpectedFailure(e);
 }
 
 extension DioErrorX on DioError {
@@ -123,7 +124,7 @@ extension DioErrorX on DioError {
             networkFailure = const NetworkFailure.serviceUnavailable();
             break;
           default:
-            networkFailure = const NetworkFailure.unexpected();
+            networkFailure = NetworkFailure.unexpected(error ?? type);
             break;
         }
         break;
