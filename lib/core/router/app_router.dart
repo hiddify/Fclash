@@ -106,9 +106,11 @@
 // }
 
 import 'package:clashify/core/router/app_routes.dart';
-import 'package:clashify/features/home/view/home_page.dart';
+import 'package:clashify/features/home/view/view.dart';
+import 'package:clashify/features/logs/view/view.dart';
 import 'package:clashify/features/profile_detail/view/view.dart';
-import 'package:clashify/features/settings/view/settings_page.dart';
+import 'package:clashify/features/profiles/profiles.dart';
+import 'package:clashify/features/settings/view/view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -134,6 +136,7 @@ class AppRouter {
   final List<RouteBase> _routes = [
     GoRoute(
       path: '/',
+      name: 'home',
       builder: (context, state) {
         return const HomePage();
       },
@@ -154,6 +157,13 @@ class AppRouter {
           profileId!,
           url: profileUrl,
         );
+      },
+    ),
+    GoRoute(
+      path: Routes.logs.path,
+      name: 'logs',
+      builder: (context, state) {
+        return const LogsPage();
       },
     ),
     GoRoute(

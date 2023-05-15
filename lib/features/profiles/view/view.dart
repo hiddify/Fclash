@@ -1,1 +1,1 @@
-export 'profiles_page.dart';
+export 'profiles_modal.dart';

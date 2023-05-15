@@ -7,25 +7,23 @@
         "settings": "settings"
     },
     "home": {
+        "pageTitle": "home",
         "addNewProfile": "add new profile",
         "advanced": "advanced",
         "emptyProfilesMsg": "start by adding subscription profile",
         "addFromClipboard": "add from clipboard",
         "scanQr": "scan qr code",
-        "tapToConnect": "tap to connect",
-        "connected": "connected",
         "delay": "delay",
         "updatedTimeAgo": "updated ${timeAgo}",
         "subscriptionState": {
             "remaining": "remaining",
             "expired": "expired",
             "noTraffic": "no traffic"
-        }
-    },
-    "profile": {
-        "status": {
-            "clickToConnect": "click to connect",
+        },
+        "connection": {
+            "tapToConnect": "tap to connect",
             "connecting": "connecting",
+            "disconnecting": "disconnecting",
             "connected": "connected"
         }
     },

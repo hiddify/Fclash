@@ -1,7 +1,7 @@
 import 'package:clashify/core/core_providers.dart';
 import 'package:clashify/core/router/router.dart';
 import 'package:clashify/domain/profiles/profiles.dart';
-import 'package:clashify/features/home/widgets/profiles_bottom_sheet.dart';
+import 'package:clashify/features/profiles/profiles.dart';
 import 'package:clashify/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -51,7 +51,7 @@ class ActiveProfileCard extends HookConsumerWidget {
                               builder: (context, scrollController) {
                                 return Padding(
                                   padding: const EdgeInsets.only(top: 8),
-                                  child: ProfilesBottomSheet(
+                                  child: ProfilesModal(
                                     scrollController: scrollController,
                                   ),
                                 );

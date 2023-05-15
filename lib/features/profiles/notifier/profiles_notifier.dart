@@ -5,13 +5,15 @@ import 'package:clashify/domain/failures.dart';
 import 'package:clashify/domain/profiles/profiles.dart';
 import 'package:clashify/features/profiles/notifier/profiles_state.dart';
 import 'package:clashify/utils/utils.dart';
-import 'package:dartx/dartx.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class ProfilesNotifier extends Notifier<ProfilesState> with AppLogger {
+class ProfilesNotifier extends AutoDisposeNotifier<ProfilesState>
+    with AppLogger {
   static final provider =
-      NotifierProvider<ProfilesNotifier, ProfilesState>(ProfilesNotifier.new);
+      NotifierProvider.autoDispose<ProfilesNotifier, ProfilesState>(
+    ProfilesNotifier.new,
+  );
 
   @override
   ProfilesState build() {
@@ -33,13 +35,13 @@ class ProfilesNotifier extends Notifier<ProfilesState> with AppLogger {
     _listener = _profilesRepo.watchAll().listen(
       (failureOrProfiles) {
         failureOrProfiles.fold(
-          (l) {
-            loggy.warning('failed to receive profiled, $l');
+          (f) {
+            loggy.warning('failed to receive profiles, $f');
+            state = state.copyWith(profiles: ValueState.failure(f));
           },
           (profiles) {
             state = state.copyWith(
-              profiles: profiles,
-              selectedProfile: profiles.firstOrNullWhere((e) => e.active),
+              profiles: ValueState.data(profiles),
             );
           },
         );
@@ -48,14 +50,19 @@ class ProfilesNotifier extends Notifier<ProfilesState> with AppLogger {
   }
 
   Future<void> selectActiveProfile(String id) async {
-    loggy.debug('setting active profile to: $id');
+    if (state.selectProfile.isInProgress) return;
+    loggy.debug('changing active profile to: $id');
+    state = state.copyWith(selectProfile: const MutationState.inProgress());
     await _profilesRepo.setAsActive(id).then(
           (value) => value.match(
-            (l) {
-              loggy.warning('failed to set $id as active profile, $l');
-              // propagate error
+            (f) {
+              loggy.warning('failed to set $id as active profile, $f');
+              state = state.copyWith(selectProfile: MutationState.failure(f));
             },
-            (_) => null,
+            (_) {
+              state =
+                  state.copyWith(selectProfile: const MutationState.success());
+            },
           ),
         );
   }

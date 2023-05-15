@@ -1,6 +1,6 @@
 import 'package:clashify/core/core_providers.dart';
 import 'package:clashify/data/data_providers.dart';
-import 'package:clashify/features/proxies/notifier/notifier.dart';
+import 'package:clashify/features/home/notifier/notifier.dart';
 import 'package:clashify/gen/assets.gen.dart';
 import 'package:clashify/utils/utils.dart';
 import 'package:flutter/material.dart';
@@ -44,10 +44,11 @@ class ConnectionButton extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final t = ref.watch(Core.translations);
-    final state = ref.watch(ProxiesNotifier.provider);
-    final notifier = ref.watch(ProxiesNotifier.provider.notifier);
+    final connection = ref
+        .watch(HomeNotifier.provider.select((value) => value.proxyConnection));
 
-    final Color connectionLogoColor = state.isSystemProxy
+    // TODO: use theme extensions
+    final Color connectionLogoColor = connection.isConnected
         ? const Color.fromRGBO(89, 140, 82, 1)
         : const Color.fromRGBO(74, 77, 139, 1);
 
@@ -72,11 +73,9 @@ class ConnectionButton extends HookConsumerWidget {
             shape: const CircleBorder(),
             child: InkWell(
               onTap: () async {
-                if (state.isSystemProxy) {
-                  await notifier.clearSystemProxy();
-                } else {
-                  await notifier.setSystemProxy();
-                }
+                await ref
+                    .read(HomeNotifier.provider.notifier)
+                    .toggleConnection();
               },
               child: Padding(
                 padding: const EdgeInsets.all(26),
@@ -91,10 +90,16 @@ class ConnectionButton extends HookConsumerWidget {
           ),
         ),
         const Gap(8),
-        if (state.isSystemProxy)
-          Text(t.home.connected.titleCase)
-        else
-          Text(t.home.tapToConnect.sentenceCase),
+        connection.when(
+          disconnected: (_) =>
+              Text(t.home.connection.tapToConnect.sentenceCase),
+          switching: (previouslyConnected) {
+            return previouslyConnected
+                ? Text(t.home.connection.disconnecting.titleCase)
+                : Text(t.home.connection.connecting.titleCase);
+          },
+          connected: (_) => Text(t.home.connection.connected.titleCase),
+        ),
       ],
     );
   }

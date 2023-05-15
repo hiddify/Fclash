@@ -1,1 +1,1 @@
-export 'profile_tile_widget.dart';
+export 'profile_tile.dart';

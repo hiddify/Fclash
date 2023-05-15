@@ -3,6 +3,7 @@ class Routes {
 
   final String path;
 
+  static const Routes home = Routes('/');
   static const Routes proxies = Routes('/proxies');
   static const Routes profiles = Routes('/profiles');
   static const Routes settings = Routes('/settings');
