@@ -60,6 +60,7 @@ dependencies:
   stack_trace: ^1.11.0
   timeago: ^3.4.0
   web_socket_channel: ^2.4.0
+  fluttertoast: ^8.2.1
 
 dev_dependencies:
   flutter_test:
